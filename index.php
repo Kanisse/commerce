@@ -22,7 +22,7 @@ echo    "<tr>
         <td>".$row['quantite']."</td>
         <td><a href='details.php?id=".$row['id']."' class='btn btn-info'>Détails</button></td>
         <td><a href='Supprimer.php?id=".$row['id']."' class='btn btn-danger'>Supprimer</a></td>
-        <td><button class='btn btn-warning'>Modifier</button></td>
+        <td><a href='Modifier.php?id=".$row['id']."' class='btn btn-warning'>Modifier</button></td>
         </tr>";    
 }
 
