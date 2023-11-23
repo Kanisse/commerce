@@ -12,7 +12,7 @@ $mysql= new mysqli("localhost", "root", "", "commerce");
 $id= $_GET['id'];
 $sql= "delete from produits where id= $id ";
 $mysql -> query($sql);
-header ('Location: index.php');
+header ('Location: produits.php');
   
   ?>
 </body>

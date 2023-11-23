@@ -48,7 +48,7 @@ if(isset($_POST['update'])){
     $sql = "update produits set nom= '$nom', prix='$prix', quantite='$Q' 
     where id= '$id'";
     $mysql -> query($sql);
-    header("Location: index.php");
+    header("Location: produits.php");
 }
 
 ?>
