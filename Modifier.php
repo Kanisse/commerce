@@ -10,12 +10,16 @@
 <body>
     <h1>la modification d'un produit</h1>
     
-<?php 
-$mysql = new mysqli("localhost", "root", "", "commerce");
-$id = $_GET['id'];
-$sql = "select * from produits where id = $id";
-$result = $mysql->query($sql);
-$row = $result->fetch_assoc();
+<?php
+if(isset($_GET['id'])){
+    $id = $_GET['id']; 
+    $mysql = new mysqli("localhost", "root", "", "commerce");
+    $sql = "select * from produits where id = $id";
+    $result = $mysql->query($sql);
+    $row = $result->fetch_assoc();
+}
+
+
 ?>
 <form action="Modifier.php" method="post">
   <div class="mb-3">
@@ -30,8 +34,23 @@ $row = $result->fetch_assoc();
     <label class="form-label">Quantité du produit </label>
     <input type="number"  value ="<?php echo $row['quantite']; ?>" name="quantite" class="form-control">
   </div>
-  <button type="submit" name ="insert" class="btn btn-primary">Submit</button>
+  <input name="id" type="hidden" value="<?php echo $id; ?>">
+  <button type="submit" name ="update" class="btn btn-primary">Submit</button>
 </form>
 
+<?php  
+if(isset($_POST['update'])){
+    $mysql = new mysqli("localhost", "root", "", "commerce");
+    $nom= $_POST['nom'];
+    $prix=$_POST['prix'];
+    $Q= $_POST['quantite'];
+    $id= $_POST['id'];
+    $sql = "update produits set nom= '$nom', prix='$prix', quantite='$Q' 
+    where id= '$id'";
+    $mysql -> query($sql);
+    header("Location: index.php");
+}
+
+?>
 </body>
 </html>
