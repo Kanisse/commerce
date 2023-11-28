@@ -22,13 +22,13 @@
     <body>
 
 
-<form>
+<form action="connexion.php" method="post">
                 <div class="row">
                   <div class="col-4"></div>
                   <div class="col-4">
                   <div class="form-group">
-                  <label class="text-black" for="email">Email address</label>
-                  <input type="email" class="form-control" id="email">
+                  <label class="text-black" >Login</label>
+                  <input type="text" name="login" class="form-control" id="email">
                 </div>
                   </div>
                 </div>
@@ -38,7 +38,7 @@
                   <div class="col-4">
                   <div class="form-group mb-5">
                   <label class="text-black" for="message">Mot de passe</label>
-                  <input name="" class="form-control" id="message">
+                  <input type="password" name="mdp" class="form-control" id="message">
                 </div>
                 </div>
                   </div>
@@ -46,14 +46,34 @@
                   <div class="row">
                   <div class="col-4"></div>
                   <div class="col-4">
-                  <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
+                  <input name = "connect" value="Se connecter" type="submit" class="btn btn-primary-hover-outline" >
               </form>
                 </div>
                   </div>
 
                 </div>
 
-                
+           
+<?php 
+$mysql = new mysqli("localhost", "root", "", "commerce");
+$result = $mysql->query("select * from utilisateurs");
+$row = $result -> fetch_assoc();
+if(isset($_POST["connect"])){
+    $login = $_POST['login'];
+    $mdp= $_POST["mdp"];
+
+    if ($login==$row['login'] && $row['mdp'] == md5($mdp) ){
+      session_start();
+      $_SESSION['login'] = $login;
+      header("Location: index.php");
+    }
+    else{
+        echo "<script>alert('erreur de connexion')</script>";
+    }
+    
+
+}
+?>     
 
                 
 

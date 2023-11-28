@@ -27,7 +27,7 @@
 	<body>
 
 		<!-- Start Header/Navigation -->
-		<?php  include("menu.html");  ?>
+		<?php  include("menu.php");  ?>
 		<!-- End Header/Navigation -->
 
 		<!-- Start Hero Section -->
