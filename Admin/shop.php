@@ -64,7 +64,7 @@
 <?php echo "<img src='images/".$row['photo']."' class='img-fluid product-thumbnail'>";?>
 <?php echo "<h3 class='product-title'>".$row['description']."</h3>"; ?>
 <?php echo "<strong class='product-price'>".$row['prix']." DH</strong>"; ?>
-
+<a href="">delete</a>
 							<span class="icon-cross">
 								<img src="images/cross.svg" class="img-fluid">
 							</span>
