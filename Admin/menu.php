@@ -1,5 +1,4 @@
-<?php    session_start() ;
-?> 
+
 
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
@@ -22,13 +21,8 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<?php if (isset($_SESSION)){
-							echo "<div style ='color:white'>". $_SESSION['login']."</div>";
-							echo "<li><a class='nav-link' href='deconnexion.php'></li>";
-						} else {
-						echo "<li><a class='alert alert-primary' href='connexion.php'><img src='images/user.svg'></a></li>";
-						}?>
 						
+						<li><a class='alert alert-primary' href='connexion.php'><img src='images/user.svg'></a></li>";
 						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
 					</ul>
 				</div>

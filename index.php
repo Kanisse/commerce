@@ -47,7 +47,7 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #1114CC;
+	border: 1px solid #3b5d50 ;
 	background-color: #080808;
 	color: #FFFFFF;
 	font-size: 12px;
@@ -163,7 +163,7 @@ input {
 .overlay {
 	background: #826DD1;
 	background: -webkit-linear-gradient(to right, #58A157, #4EFF41);
-	background: linear-gradient(to right, #0EECEF, #7DDDF2);
+	background: linear-gradient(to right, #3b5d43 , #3b5d50 );
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -293,7 +293,7 @@ footer a {
 				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
+				<h1>Hello!</h1>
 				<p>Enter your personal details and start journey with us</p>
 				<button class="ghost" id="signUp">Sign Up</button>
 			</div>
