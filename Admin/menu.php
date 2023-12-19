@@ -14,7 +14,7 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="index.php">Acceuil</a>
 						</li>
-						<li><a class="nav-link" href="shop.php">Boutique</a></li>
+						<li><a class="nav-link" href="shop.php">Formations</a></li>
 						<li><a class="nav-link" href="about.php">A propos</a></li>
 						<li><a class="nav-link" href="services.php">Services</a></li>
 						<li><a class="nav-link" href="contact.php">Contactez-nous</a></li>
@@ -22,7 +22,7 @@
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 						
-						<li><a class='alert alert-primary' href='connexion.php'><img src='images/user.svg'></a></li>";
+						<li><a class='nav-link' href='..\index.php'><img src='images/user.svg'></a></li>";
 						<li><a class="nav-link" href="cart.html"><img src="images/cart.svg"></a></li>
 					</ul>
 				</div>

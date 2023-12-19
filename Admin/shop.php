@@ -1,10 +1,4 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,21 +25,6 @@
 		<!-- End Header/Navigation -->
 
 		<!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Shop</h1>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->
 
 		
 
@@ -59,16 +38,17 @@
 					?>
 					<?php while($row = $result -> fetch_assoc()) {  ?>
 		      		<!-- Start Column 1 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
+					<div class="col-12 col-md-4 col-lg-4 mb-5">
 						<a class="product-item" href="#">
-<?php echo "<img src='images/".$row['photo']."' class='img-fluid product-thumbnail'>";?>
+<?php echo "<img width='400px' height='400px' src='images/".$row['photo']."' class='img-fluid product-thumbnail'>";?>
 <?php echo "<h3 class='product-title'>".$row['description']."</h3>"; ?>
-<?php echo "<strong class='product-price'>".$row['prix']." DH</strong>"; ?>
-<a href="">delete</a>
-							<span class="icon-cross">
-								<img src="images/cross.svg" class="img-fluid">
-							</span>
-						</a>
+<?php echo "<strong class='product-price'>".$row['prix']." DH 
+<a class='fa fa-trash fa-3x' href=''></a>
+<a class='fa fa-pencil fa-3x' href=''></a>
+<a class='fa fa-eye fa-3x' href=''></a>	
+</strong>"; ?>
+					
+						</a>			
 					</div> 
 					<?php    } ?>
 					<!-- End Column 1 -->
