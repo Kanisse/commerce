@@ -256,7 +256,7 @@ footer a {
 <h2>Connexion</h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form action="index.php" method="post">
 			<h1>Create Account</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -271,7 +271,7 @@ footer a {
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form action="index.php" method="post">
 			<h1>Sign in</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -279,10 +279,10 @@ footer a {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" name="email" placeholder="Email" />
+			<input type="password" name="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+			<input class="btn btn-primary" name ="signin" type="submit" value="Sign in">
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -301,6 +301,28 @@ footer a {
 	</div>
 </div>
 
+<?php
+$email = $_POST["email"];
+$mdp= $_POST["password"];
+$con= new mysqli("localhost","root","","commerce");
+$result=$con-> query("select * from utilisateurs");
+
+while($row=$result-> fetch_assoc()){
+	if($email == $row['login'] && md5($mdp)== $row['mdp'])
+	{
+	$find=1;
+	break;
+}
+else {
+	echo "erreur de connexion";
+}
+}// end while
+
+if($find==1){
+	header("Location: Admin/html/ltr/index.php");
+} 
+
+?>
 
 <script>
   const signUpButton = document.getElementById('signUp');
