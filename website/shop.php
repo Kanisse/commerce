@@ -21,10 +21,11 @@
 	<body>
 
 		<!-- Start Header/Navigation -->
-		<?php  include("menu.php");  ?>
-		<!-- End Header/Navigation -->
-
-		<!-- Start Hero Section -->
+		<?php  
+		include("menu.php"); 
+		require_once("connexion.php");
+		?>
+		
 
 		
 
@@ -32,7 +33,6 @@
 		    <div class="container">
 		      	<div class="row">
 					<?php 
-					$mysql = new mysqli ("localhost", "root", "", "commerce" );
 					$result = $mysql -> query("select * from produits");
 
 					?>
