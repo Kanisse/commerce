@@ -6,19 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <?php  
+    <?php 
+    require_once("connexion.php") ;
     $id = $_GET['id'];
-    $mysql = new mysqli("localhost", "root","","commerce");
-    $sql = "select * from images where produit_id=$id";
+    $sql = "select * from produits where id=$id";
     $result = $mysql->query($sql);
-    while($row = $result -> fetch_assoc()){
-        echo "<img src='images/".$row['chemin']."'>";
-    }
-    $sql1= "select * from produits where id=$id";
-    $result = $mysql -> query($sql1);
-    $row1= $result -> fetch_assoc();
-    echo "<h1>".$row1['nom']."</h1>";
-    echo "<h1>".$row1['prix']."</h1>";
+    
+    $row= $result -> fetch_assoc();
+    echo "<h1>".$row['description']."</h1>";
+    echo "<h1>".$row['prix']."</h1>";
+    echo "<img src='images/".$row['photo']."'</h1>";
     ?>
 </body>
 </html>
