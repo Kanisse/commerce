@@ -1,10 +1,6 @@
-<style>
-  
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+<style>  
 
-* {
-	box-sizing: border-box;
-}
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 body {
 	background: #f6f5f7;
@@ -253,15 +249,25 @@ footer a {
 }
 </style>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	
 <h2>Connexion</h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="index.php" method="post">
 			<h1>Create Account</h1>
 			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+				<a href="#" class="social"><i class="fa-brands fa-facebook"></i></a>
+				<a href="#" class="social"><i class="fa-brands fa-google"></i></a>
+				<a href="#" class="social"><i class="fa-brands fa-linkedin"></i></a>
 			</div>
 			<span>or use your email for registration</span>
 			<input type="text" placeholder="Name" />
@@ -274,12 +280,12 @@ footer a {
 		<form action="index.php" method="post">
 			<h1>Sign in</h1>
 			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			<a href="#" class="social"><i class="fa-brands fa-facebook"></i></a>
+				<a href="#" class="social"><i class="fa-brands fa-google"></i></a>
+				<a href="https://www.linkedin.com/in/anisse-khald-b0666728/" class="social"><i class="fa-brands fa-linkedin"></i></a>
 			</div>
 			<span>or use your account</span>
-			<input type="text" name="email" placeholder="Email" />
+			<input type="email" name="email" placeholder="Email" />
 			<input type="password" name="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
 			<input class="btn btn-primary" name ="signin" type="submit" value="Sign in">
@@ -302,39 +308,34 @@ footer a {
 </div>
 
 <?php
-$email = $_POST["email"];
-$mdp= $_POST["password"];
-$con= new mysqli("localhost","root","","commerce");
-$result=$con-> query("select * from utilisateurs");
-
-while($row=$result-> fetch_assoc()){
-	if($email == $row['login'] && md5($mdp)== $row['mdp'])
-	{
-	$find=1;
-	break;
+$con = new mysqli("localhost", "root", "", "commerce");
+if (isset($_POST['signin'])) {
+    $user = $_POST["email"];
+    $mdp = $_POST["password"];
+    $sql = "SELECT * FROM utilisateurs WHERE email = '$user' AND mdp = '$mdp'";
+    $result = $con->query($sql);
+    if ($result->num_rows == 1) {
+        echo "Nice, Welcome $user.";
+    } else {
+		echo "connection error";
+    }
 }
-else {
-	echo "erreur de connexion";
-}
-}// end while
-
-if($find==1){
-	header("Location: Admin/html/ltr/index.php");
-} 
-
+$con->close();
 ?>
+</body>
+</html>
 
 <script>
-  const signUpButton = document.getElementById('signUp');
+const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
 signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
+container.classList.add("right-panel-active");
 });
 
 signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
+container.classList.remove("right-panel-active");
 });
 </script>
 
