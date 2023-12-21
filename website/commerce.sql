@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 30 nov. 2023 à 11:43
+-- Généré le : jeu. 21 déc. 2023 à 10:42
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -39,13 +39,15 @@ CREATE TABLE `produits` (
 --
 
 INSERT INTO `produits` (`id`, `description`, `prix`, `photo`) VALUES
-(1, 'Sauvage Dior', 300, 'sauvage.jpg'),
-(2, 'My Way', 800, 'myway.jpg'),
-(3, 'coco chanel', 400, 'coco.jpg'),
-(4, 'Bleu de chanel', 450, 'bleu.jpg'),
-(5, 'miss dior', 500, 'miss.jpg'),
-(6, 'invictus', 600, 'invictus.jpg'),
-(7, 'jadore', 350, 'jadore.jpg');
+(1, 'Angular', 300, 'angular.png'),
+(2, 'Ractjs', 800, 'react.png'),
+(3, 'Django', 400, 'django.png'),
+(4, 'Laravel', 450, 'laravel.jpg'),
+(5, 'NodeJs', 500, 'nodejs.jpg'),
+(8, 'php', 300, 'php.jpg'),
+(9, 'python3', 500, 'python.jpg'),
+(10, 'symfony', 450, 'symfony.png'),
+(16, 'Formation IA Générative ', 5000, 'HCSS.PNG');
 
 -- --------------------------------------------------------
 
@@ -55,16 +57,18 @@ INSERT INTO `produits` (`id`, `description`, `prix`, `photo`) VALUES
 
 CREATE TABLE `utilisateurs` (
   `id` int(11) NOT NULL,
-  `login` varchar(50) NOT NULL,
-  `mdp` varchar(300) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `mdp` varchar(300) NOT NULL,
+  `role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `login`, `mdp`) VALUES
-(1, 'supadmin', 'e3afed0047b08059d0fada10f400c1e5');
+INSERT INTO `utilisateurs` (`id`, `email`, `mdp`, `role`) VALUES
+(1, 'Admin@gmail.com', 'e3afed0047b08059d0fada10f400c1e5', 'Admin'),
+(2, 'user@gmail.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'User');
 
 --
 -- Index pour les tables déchargées
@@ -90,13 +94,13 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
