@@ -27,6 +27,7 @@
 		?>
 		
 
+	<a class ="btn btn-dark" href="Ajouter.php"> nouvelle formation</a>
 		
 
 		<div class="untree_co-section product-section before-footer-section">

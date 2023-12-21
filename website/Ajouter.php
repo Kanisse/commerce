@@ -10,16 +10,16 @@
 <body>
 <form action="Ajouter.php" method="post">
   <div class="mb-3">
-    <label  class="form-label">Nom du produit</label>
-    <input type="text" name="nom" class="form-control" >
+    <label  class="form-label">description de la formation</label>
+    <input type="text" name="description" class="form-control" >
     </div>
   <div class="mb-3">
-    <label class="form-label">Prix du produit </label>
-    <input type="number" name="prix" class="form-control" >
+    <label class="form-label"> tarif de la formation </label>
+    <input type="number" name="tarif" class="form-control" >
   </div>
   <div class="mb-3">
-    <label class="form-label">Quantité du produit </label>
-    <input type="number"  name="quantite" class="form-control">
+    <label class="form-label"> photo de la formation </label>
+    <input type="file" name="photo" class="form-control" >
   </div>
   <button type="submit" name ="insert" class="btn btn-primary">Submit</button>
 </form>
@@ -29,13 +29,17 @@
 
 if(isset($_POST['insert'])){
     $mysql= new mysqli("localhost", "root", "", "commerce");
-    $nom= $_POST['nom'];
-    $prix=$_POST['prix'];
-    $Q= $_POST['quantite'];
-    $sql = "insert into produits(nom, prix, quantite) 
-    values ('$nom', '$prix','$Q')";
+    $nom= $_POST['description'];
+    $prix=$_POST['tarif'];
+    $photo= $_POST['photo'];
+    $destination = 'images/';
+    $file_name= $_FILES["photo"]["name"];
+    $chemin= $destination.$file_name;
+    move_uploaded_file($_FILES["photo"]["name"],$chemin);
+    $sql = "insert into produits(description, prix, photo) 
+    values ('$nom', '$prix','$photo')";
     $mysql -> query($sql);
-    header('Location: produits.php');
+    header('Location: index.php');
 
 
 }
