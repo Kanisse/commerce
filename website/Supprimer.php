@@ -8,11 +8,11 @@
 <body>
     <?php 
 //echo "le produit que je veux supprimer a le id égal à: ".$_GET['id'];
-$mysql= new mysqli("localhost", "root", "", "commerce");
+require_once("connexion.php");
 $id= $_GET['id'];
-$sql= "delete from produits where id= $id ";
+$sql= "DELETE FROM produits WHERE id= $id ";
 $mysql -> query($sql);
-header ('Location: produits.php');
+header ('Location: index.php');
   
   ?>
 </body>

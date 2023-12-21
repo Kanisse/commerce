@@ -43,9 +43,9 @@
 <?php echo "<img width='400px' height='400px' src='images/".$row['photo']."' class='img-fluid product-thumbnail'>";?>
 <?php echo "<h3 class='product-title'>".$row['description']."</h3>"; ?>
 <?php echo "<strong class='product-price'>".$row['prix']." DH 
-<a class='fa fa-trash fa-3x' href=''></a>
-<a class='fa fa-pencil fa-3x' href=''></a>
-<a class='fa fa-eye fa-3x' href=''></a>	
+<a class='fa fa-trash fa-3x' href='Supprimer.php?id=".$row['id']."'></a>
+<a class='fa fa-pencil fa-3x' href='Modifier.php?id=".$row['id']."'></a>
+<a class='fa fa-eye fa-3x' href='details.php?id=".$row['id']."'></a>	
 </strong>"; ?>
 					
 						</a>			
