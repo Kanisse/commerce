@@ -311,7 +311,7 @@ footer a {
 $con = new mysqli("localhost", "root", "", "commerce");
 if (isset($_POST['signin'])) {
     $user = $_POST["email"];
-    $mdp = $_POST["password"];
+    $mdp = md5($_POST["password"]);
     $sql = "SELECT * FROM utilisateurs WHERE email = '$user' AND mdp = '$mdp'";
     $result = $con->query($sql);
     if ($result->num_rows == 1) {

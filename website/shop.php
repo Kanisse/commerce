@@ -34,7 +34,7 @@
 		    <div class="container">
 		      	<div class="row">
 					<?php 
-					$result = $mysql -> query("select * from produits");
+					$result = $mysql -> query("select * from formations");
 
 					?>
 					<?php while($row = $result -> fetch_assoc()) {  ?>
@@ -43,7 +43,7 @@
 						<a class="product-item" href="#">
 <?php echo "<img width='400px' height='400px' src='images/".$row['photo']."' class='img-fluid product-thumbnail'>";?>
 <?php echo "<h3 class='product-title'>".$row['description']."</h3>"; ?>
-<?php echo "<strong class='product-price'>".$row['prix']." DH 
+<?php echo "<strong class='product-price'>".$row['tarif']." DH 
 <a class='fa fa-trash fa-3x' href='Supprimer.php?id=".$row['id']."'></a>
 <a class='fa fa-pencil fa-3x' href='Modifier.php?id=".$row['id']."'></a>
 <a class='fa fa-eye fa-3x' href='details.php?id=".$row['id']."'></a>	
@@ -51,10 +51,16 @@
 					
 						</a>			
 					</div> 
-					<?php    } ?>
+					<?php    } 
+					
+					
+// Chemin vers le fichier de sauvegarde
+$backup_file = 'db/db.sql';
+$command = "mysqldump --host={'localhost'} --user={'root'} --password={''} {'commerce'} > {$backup_file}";
+exec($command, $output, $result);
+					?>
 					<!-- End Column 1 -->
 					
-
 		      	</div>
 		    </div>
 		</div>

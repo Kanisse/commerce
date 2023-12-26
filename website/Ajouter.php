@@ -39,7 +39,7 @@ if(isset($_POST['insert'])){
     $sql = "insert into produits(description, prix, photo) 
     values ('$nom', '$prix','$photo')";
     $mysql -> query($sql);
-    header('Location: index.php');
+    header('Location: shop.php');
 
 
 }
