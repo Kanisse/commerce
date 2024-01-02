@@ -312,10 +312,10 @@ $con = new mysqli("localhost", "root", "", "commerce");
 if (isset($_POST['signin'])) {
     $user = $_POST["email"];
     $mdp = md5($_POST["password"]);
-    $sql = "SELECT * FROM utilisateurs WHERE email = '$user' AND mdp = '$mdp'";
+    $sql = "SELECT * FROM utilisateurs WHERE (email = '$user' AND mdp = '$mdp') or role='Admin'";
     $result = $con->query($sql);
     if ($result->num_rows == 1) {
-        echo "Nice, Welcome $user.";
+        header('Admin/');
     } else {
 		echo "connection error";
     }
