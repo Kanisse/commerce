@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 02 jan. 2024 à 11:23
+-- Généré le : mar. 02 jan. 2024 à 11:39
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -34,6 +34,14 @@ CREATE TABLE `commandes` (
   `Total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `commandes`
+--
+
+INSERT INTO `commandes` (`id`, `adresse_commande`, `date_commande`, `Total`) VALUES
+(1, '12 rue dark , avenue hassan 2, Rabat', '2024-01-04', 120000),
+(2, '3 villa Asmae', '2024-01-05', 2500);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +54,18 @@ CREATE TABLE `details` (
   `id_produit` int(10) NOT NULL,
   `Q` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `details`
+--
+
+INSERT INTO `details` (`id`, `id_commande`, `id_produit`, `Q`) VALUES
+(1, 1, 1, 2),
+(2, 1, 3, 4),
+(3, 2, 4, 3),
+(4, 2, 5, 4),
+(5, 2, 5, 3),
+(6, 2, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -100,6 +120,17 @@ CREATE TABLE `produits` (
   `prix` double NOT NULL,
   `Quantite` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `produits`
+--
+
+INSERT INTO `produits` (`id`, `Nom`, `prix`, `Quantite`) VALUES
+(1, 'Chaise', 400, 23),
+(2, 'Table', 1200, 40),
+(3, 'PC portable HP', 3500, 10),
+(4, 'Macbook', 12000, 12),
+(5, 'Ecran LCD 45°', 5000, 50);
 
 -- --------------------------------------------------------
 
@@ -183,13 +214,13 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `commandes`
 --
 ALTER TABLE `commandes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `details`
 --
 ALTER TABLE `details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `formations`
@@ -213,7 +244,7 @@ ALTER TABLE `participations`
 -- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
