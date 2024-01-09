@@ -382,8 +382,20 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                Le produit le plus vendu</div>
+                                                <?php 
+                                                $cnx= new mysqli("localhost","root","","commerce");
+                                                $sql = "SELECT produits.Nom as namep, Sum(details.Q) as total from details
+                                                INNER Join produits ON details.id_produit=produits.id
+                                                GROUP BY details.id_produit
+                                                ORDER By total DESC
+                                                LIMIT 1";
+                                                $req=$cnx->query($sql);
+                                                $row= $req -> fetch_assoc();
+                                                $result= $cnx -> query("select sum(Total) as TotalC from commandes");
+                                                $ligne= $result -> fetch_assoc();
+?>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $row['namep'] ?> : <?php echo $row['total'] ?> </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -400,8 +412,10 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Total vendu</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <?php echo $ligne['TotalC']; ?>DH
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

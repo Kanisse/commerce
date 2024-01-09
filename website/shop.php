@@ -34,16 +34,16 @@
 		    <div class="container">
 		      	<div class="row">
 					<?php 
-					$result = $mysql -> query("select * from formations");
+					$result = $mysql -> query("select * from produits");
 
 					?>
 					<?php while($row = $result -> fetch_assoc()) {  ?>
 		      		<!-- Start Column 1 -->
 					<div class="col-12 col-md-4 col-lg-4 mb-5">
 						<a class="product-item" href="#">
-<?php echo "<img width='400px' height='400px' src='images/".$row['photo']."' class='img-fluid product-thumbnail'>";?>
-<?php echo "<h3 class='product-title'>".$row['description']."</h3>"; ?>
-<?php echo "<strong class='product-price'>".$row['tarif']." DH 
+<?php //echo "<img width='400px' height='400px' src='images/".$row['photo']."' class='img-fluid product-thumbnail'>";?>
+<?php echo "<h3 class='product-title'>".$row['Nom']."</h3>"; ?>
+<?php echo "<strong class='product-price'>".$row['prix']." DH 
 <a class='fa fa-trash fa-3x' href='Supprimer.php?id=".$row['id']."'></a>
 <a class='fa fa-pencil fa-3x' href='Modifier.php?id=".$row['id']."'></a>
 <a class='fa fa-eye fa-3x' href='details.php?id=".$row['id']."'></a>	
