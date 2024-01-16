@@ -483,28 +483,31 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
+                                    <h6 class="m-0 font-weight-bold text-primary">La liste des commandes</h6>
+                                  
                                 </div>
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
+                                 <?php  
+                                 $sql ="select commandes.id as id , commandes.date_commande as date, produits.Nom as name
+                                 from commandes
+                                 join details on commandes.id= details.id_commande
+                                 join produits on details.id_produit= produits.id
+                                 Group BY commandes.id";
+                                 
+                                 $result1= $cnx -> query($sql);
+                                 ?>
+                                <table class="table">
+                                        <tr>
+                                            <th>Commande</th>
+                                            <th>Date de la commande</th>
+                                            <th>Nom produit</th>
+                                        </tr>
+<?php
+while($row = $result1 -> fetch_assoc()){
+ echo  "<tr><td>".$row['id']."</td> <td>".$row['date']."</td> <td>".$row['name']."</td></tr>";      
+}
+?>
+                                    </table>
                             </div>
                         </div>
 
